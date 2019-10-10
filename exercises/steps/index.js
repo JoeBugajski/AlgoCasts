@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // --- Directions
 // Write a function that accepts a positive number N.
 // The function should console log a step shape
@@ -17,6 +18,20 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  if (n === 0) {
+    return;
+  }
+  for (let i = 1; i <= n; i++) {
+    let line = '';
+    while (line.length < i) {
+      line += '#';
+    }
+    while (line.length < n) {
+      line += ' ';
+    }
+    console.log(line);
+  }
+}
 
 module.exports = steps;

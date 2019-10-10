@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // --- Directions
 // Write a function that accepts a positive number N.
 // The function should console log a pyramid shape
@@ -14,6 +15,21 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  if (n === 0) {
+    return;
+  }
+  let blocks = '#';
+  for (let i = 1; i <= n; i++) {
+    if (i > 1) {
+      blocks = `#${blocks}#`;
+    }
+    let line = blocks;
+    while (line.length < 2 * n - 1) {
+      line = ` ${line} `;
+    }
+    console.log(line);
+  }
+}
 
 module.exports = pyramid;
