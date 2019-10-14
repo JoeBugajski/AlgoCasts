@@ -37,6 +37,5 @@ function anagrams(stringA, stringB) {
     return false;
   }
 }
-anagrams('apple', 'paple');
 
 module.exports = anagrams;
