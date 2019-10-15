@@ -20,25 +20,39 @@
 // }
 
 // recursive solution
-let fibs = [0, 1];
-function fib(n) {
-  if (fibs.length < n + 1) {
-    fibs.push(fibs[fibs.length-1] + fibs[fibs.length - 2]);
-    return fib(n);
-  } else {
-    return fibs[n];
-  }
+// let fibs = [0, 1];
+// function fib(n) {
+//   if (fibs.length < n + 1) {
+//     fibs.push(fibs[fibs.length-1] + fibs[fibs.length - 2]);
+//     return fib(n);
+//   } else {
+//     return fibs[n];
+//   }
+// }
+
+// alternate recursive solution with memoize
+
+function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  };
 }
 
-// alternate recursive solution
+function fib(n) {
+  if (n < 2) {
+    return n;
+  }
 
-// function fib(n) {
-//   if (n < 2) {
-//     return n;
-//   }
-
-//   return fib(n - 1) + fib(n - 2);
-// }
+  return fib(n - 1) + fib(n - 2);
+}
 
 module.exports = fib;
 
